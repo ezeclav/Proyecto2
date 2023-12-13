@@ -25,6 +25,7 @@ const initDB = async () => {
                 email VARCHAR(100) UNIQUE NOT NULL,
                 username VARCHAR(30) UNIQUE NOT NULL,
                 password VARCHAR(100) NOT NULL,
+                avatar VARCHAR(100),
                 active BOOLEAN DEFAULT false,
                 role ENUM('admin', 'normal') DEFAULT 'normal',
                 registrationCode CHAR(30),

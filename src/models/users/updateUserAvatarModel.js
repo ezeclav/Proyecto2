@@ -1,16 +1,16 @@
-import getPool from "../../database/getPool.js"
+import getPool from "../../database/getPool.js";
 
 const updateUserAvatarModel = async (avatarName, userId) => {
-    const pool = await getPool();
+  const pool = await getPool();
 
-    await pool.query(
-        `
+  await pool.query(
+    `
             UPDATE users
             SET avatar = ?
-            WHERE id = ?
+            WHERE id_user = ?
         `,
-        [avatarName,userId]
-    );
-}
+    [avatarName, userId]
+  );
+};
 
 export default updateUserAvatarModel;
