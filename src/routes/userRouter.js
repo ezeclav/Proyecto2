@@ -7,7 +7,6 @@ import {
   loginUserController,
   validateUserController,
   getUserProfileController,
-  getOwnUserController,
   editUserAvatarCotroller,
   sendRecoverPassController,
   editUserPasswordController,
@@ -16,28 +15,28 @@ import {
 import authUserController from "../middlewares/authUserController.js";
 import userExistsController from "../middlewares/userExistsController.js";
 
+//proceso de registración, donde se envía x mail el codigo de registro
 router.post("/users/register", newUserController);
 router.get("/users/validate/:registrationCode", validateUserController);
 
+//proceso de logueo
 router.post("/users/login", loginUserController);
 
-//obtener el perfil publico del usuario
+//obtener el perfil del usuario
 router.get("/users/:userId", userExistsController, getUserProfileController);
-
-//obtener el perfil privado del usuario
-router.get("/users", authUserController, getOwnUserController);
-
-router.put(
-  "/users/avatar",
-  authUserController,
-  userExistsController,
-  editUserAvatarCotroller
-);
 
 //recuperar contraseña --> blanqueo --> envío de mail
 router.post("/users/password/recover", sendRecoverPassController);
 
 //toma el codigo de recuperación enviado en el endpoint anterior y
-//actualiza la contraseña en la base de datos
+//actualiza la contraseña en la BBDD
 router.put("/users/password", editUserPasswordController);
+
+router.put(
+  "/users/avatar",
+  authUserController,
+  // userExistsController,
+  editUserAvatarCotroller
+);
+
 export default router;

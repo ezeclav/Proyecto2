@@ -5,9 +5,9 @@ const selectUserByIdModel = async (userId) => {
 
   const [user] = await pool.query(
     `
-            SELECT id_user, username, email, avatar, createdAt
+            SELECT id_user, username, email, avatar, role, createdAt
             FROM users
-            WHERE id = ?
+            WHERE id_user = ?
         `,
     [userId]
   );

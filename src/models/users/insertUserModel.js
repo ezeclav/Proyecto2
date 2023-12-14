@@ -34,12 +34,12 @@ const insertUserModel = async (username, email, password, registrationCode) => {
   }
 
   /**hacer logica de envio de email */
-  const emailSubject = "Activa tu usuario en Gimnasios Fuerza Latina";
+  const emailSubject = "Activa tu usuario en GIMNASIOS FUERZA LATINA";
 
   const emailBody = `
             ¡Bienvenid@ ${username}!
 
-            Gracias por registrarte en Gimnasios Fuerza Latina. Para activar tu cuenta haga click en el siguiente enlace:
+            Gracias por registrarte en GIMNASIOS FUERZA LATINA 🤸‍♂️🏋️‍♂️. Para activar la cuenta, haga click en el siguiente enlace:
 
             <a href="http://localhost:3050/users/validate/${registrationCode}">Activar mi cuenta</a>
     `;
