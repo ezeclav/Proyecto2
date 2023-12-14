@@ -41,7 +41,7 @@ const insertUserModel = async (username, email, password, registrationCode) => {
 
             Gracias por registrarte en Gimnasios Fuerza Latina. Para activar tu cuenta haga click en el siguiente enlace:
 
-            <a href="http://localhost:3001/users/validate/${registrationCode}">Activar mi cuenta</a>
+            <a href="http://localhost:3050/users/validate/${registrationCode}">Activar mi cuenta</a>
     `;
 
   await sendMailUtil(email, emailSubject, emailBody);
