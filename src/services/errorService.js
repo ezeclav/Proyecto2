@@ -78,11 +78,11 @@ export const cannotVoteOwnEntryError = () => {
   };
 };
 
-export const voteAlreadyExistsError = () => {
+export const favAlreadyExistsError = () => {
   throw {
     httpStatus: 409, //conflicto
     code: "VOTE_ALLREADY_ERROR",
-    message: "No se puede votar mas de una vez la entrada",
+    message: "No se puede añadir el ejercicio a favoritos mas de una vez",
   };
 };
 
