@@ -15,7 +15,9 @@ const initDB = async () => {
 
     console.log("Eliminando tablas...");
     await pool.query(`USE ${MYSQL_DATABASE}`);
-    await pool.query("DROP TABLE IF EXISTS likes, photos, exercises, users");
+    await pool.query(
+      "DROP TABLE IF EXISTS like_exercises, photo_exercises, exercises, users"
+    );
 
     console.log("Creando tablas...");
 
@@ -25,7 +27,6 @@ const initDB = async () => {
                 email VARCHAR(100) UNIQUE NOT NULL,
                 username VARCHAR(30) UNIQUE NOT NULL,
                 password VARCHAR(100) NOT NULL,
-                avatar VARCHAR(100),
                 active BOOLEAN DEFAULT false,
                 role ENUM('admin', 'normal') DEFAULT 'normal',
                 registrationCode CHAR(30),
@@ -41,15 +42,16 @@ const initDB = async () => {
                 name VARCHAR(50) NOT NULL,
                 description TEXT NOT NULL,
                 typology ENUM('fuerza', 'potencia', 'resistencia'),
-                muscle_group VARCHAR(50),
+                muscle_group VARCHAR(100),
+                equipment VARCHAR(100),
                 createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
                 modifiedAt DATETIME ON UPDATE CURRENT_TIMESTAMP
         )
      `);
 
     await pool.query(`
-            CREATE TABLE IF NOT EXISTS photos (
-                id_photo INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+            CREATE TABLE IF NOT EXISTS photo_exercises (
+                id_photo_exercise INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
                 name VARCHAR(50) NOT NULL,
                 exerciseId INT NOT NULL,
                 FOREIGN KEY (exerciseId) REFERENCES exercises(id_exercise)
@@ -57,8 +59,8 @@ const initDB = async () => {
     `);
 
     await pool.query(`
-            CREATE TABLE IF NOT EXISTS likes (
-                id_like INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+            CREATE TABLE IF NOT EXISTS like_exercises (
+                id_like_exercise INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
                 userId INT NOT NULL,
                 exerciseId INT NOT NULL,
                 createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,

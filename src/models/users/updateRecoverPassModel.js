@@ -13,7 +13,7 @@ const updateRecoverPassModel = async (email, recoverPassCode) => {
     [recoverPassCode, email]
   );
 
-  const subject = "Recuperación de contraseña de GIMNASIOS FUERZA LATINA";
+  const subject = "Recuperación de contraseña de GIMNASIOS FUERZA LATINA 🏋️‍♂️🤸‍♂️";
 
   const body = `
             Se ha solicitado la recuperación de la contraseña de GIMNASIOS FUERZA LATINA para este mail.

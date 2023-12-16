@@ -7,7 +7,6 @@ import {
   loginUserController,
   validateUserController,
   getUserProfileController,
-  editUserAvatarCotroller,
   sendRecoverPassController,
   editUserPasswordController,
 } from "../controllers/users/index.js";
@@ -31,12 +30,5 @@ router.post("/users/password/recover", sendRecoverPassController);
 //toma el codigo de recuperación enviado en el endpoint anterior y
 //actualiza la contraseña en la BBDD
 router.put("/users/password", editUserPasswordController);
-
-router.put(
-  "/users/avatar",
-  authUserController,
-  // userExistsController,
-  editUserAvatarCotroller
-);
 
 export default router;
