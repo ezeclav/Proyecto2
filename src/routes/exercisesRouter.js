@@ -7,40 +7,56 @@ import authUserController from "../middlewares/authUserController.js";
 import {
   exerciseExistsController,
   userExistsController,
-  cantEditController,
+  // cantEditController,
 } from "../middlewares/index.js";
 
-import //   newEntryController,
-//   listEntriesController,
-//   getEntryController,
-//   voteEntryController,
-//   addEntryPhotoController,
-"../controllers/exercises/index.js";
+import {
+  newExercisesController,
+  listExercisesController,
+  getExercisesController,
+  favExercisesController,
+  // addExercisesPhotoController,
+} from "../controllers/exercises/index.js";
 
-router.post(
-  "/entries",
-  authUserController
-  //   userExistsController,
-  //   newEntryController
-);
-router.get("/entries", listEntriesController);
-router.get("/entries/:entryId", exerciseExistsController, getEntryController);
+///////////////////////////////////////////////////////////////
+//                   RUTAS DE EJERCICIOS                     //
+///////////////////////////////////////////////////////////////
 
+// Para añadir un nuevo ejercicio
 router.post(
-  "/entries/:entryId/votes",
+  "/exercises",
   authUserController,
-  userExistsController,
-  entryExistsController,
-  voteEntryController
+  // userExistsController,
+  newExercisesController
 );
 
+// Para visualizar todos los ejercicios
+router.get("/exercises", listExercisesController);
+
+// Para visualizar un ejercicio en particular
+router.get(
+  "/exercise/:exerciseId",
+  exerciseExistsController,
+  getExercisesController
+);
+
+// Para darle LIKE a un ejercicio
 router.post(
-  "/entries/:entryId/photos",
+  "/exercises/:exerciseId/like",
   authUserController,
   userExistsController,
-  entryExistsController,
-  cantEditController,
-  addEntryPhotoController
+  exerciseExistsController,
+  favExercisesController
+);
+
+// Para agregar una foto al ejercicio
+router.post(
+  "/exercises/:exerciseId/photos",
+  authUserController,
+  userExistsController,
+  exerciseExistsController
+  // cantEditController,
+  // addExercisesPhotoController
 );
 
 export default router;
