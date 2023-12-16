@@ -1,19 +1,18 @@
 import selectExerciseByIdModel from "../../models/exercises/selectExerciseByIdModel.js";
 
-const getExercisesController = async (req,res,next) => {
-    try {
-        const {id_exercise} = req.params;
+const getExercisesController = async (req, res, next) => {
+  try {
+    const { exerciseId } = req.params;
 
-        const exercise = await selectExerciseByIdModel(id_exercise);
+    const exercise = await selectExerciseByIdModel(exerciseId);
 
-        res.send({
-            status: 'ok',
-            data: id_exercise
-        });
-
-    } catch (error) {
-        next(error);
-    }
-}
+    res.send({
+      status: "ok",
+      data: exercise,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
 
 export default getExercisesController;

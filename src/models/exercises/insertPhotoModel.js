@@ -1,19 +1,19 @@
 import getPool from "../../database/getPool.js";
 
-const insertPhotoModel = async ( name, id_exercise ) => {
-    const pool = await getPool();
+const insertPhotoModel = async (name, exerciseId) => {
+  const pool = await getPool();
 
-    const [result] = await pool.query(
-        `
-            INSERT INTO photo_exercises (name, id_exercise)
+  const [result] = await pool.query(
+    `
+            INSERT INTO photo_exercises (name, exerciseId)
             VALUES (?,?)
         `,
-        [name, id_exercise]
-    );
+    [name, exerciseId]
+  );
 
-    const { insertId } = result;
+  const { insertId } = result;
 
-    return insertId;
-}
+  return insertId;
+};
 
 export default insertPhotoModel;

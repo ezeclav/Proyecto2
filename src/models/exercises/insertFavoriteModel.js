@@ -1,37 +1,37 @@
 import getPool from "../../database/getPool.js";
 import { favAlreadyExistsError } from "../../services/errorService.js";
 
-const insertFavoriteModel = async (id_exercise, id_user) => {
-    const pool = await getPool();
+const insertFavoriteModel = async (exerciseId, userId) => {
+  const pool = await getPool();
 
-/////////////////////// COMPROBAMOS SI YA EL USUARIO LE DIO LIKE. //////////////////////
+  /////////////////////// COMPROBAMOS SI YA EL USUARIO LE DIO LIKE. //////////////////////
 
-    const [favs] = await pool.query(
-        `
-            SELECT id FROM like_exercise
-            WHERE id_user = ? AND id_exercise=?
+  const [favs] = await pool.query(
+    `
+            SELECT id_like_exercise FROM like_exercise
+            WHERE exerciseId=? AND userId = ?
         `,
-        [id_user, id_exercise]
-    );
+    [exerciseId, userId]
+  );
 
-    if(favs.length) favAlreadyExistsError();
+  if (favs.length) favAlreadyExistsError();
 
-    /////////////////// SE INSERTA EL LIKE DEL USUARIO //////////////////////
-    await pool.query(
-        `
-            INSERT INTO like_exercise (id_user, id_exercise)
+  /////////////////// SE INSERTA EL LIKE DEL USUARIO //////////////////////
+  await pool.query(
+    `
+            INSERT INTO like_exercise (exerciseId, userId)
             VALUES (?,?)
         `,
-        [id_user, id_exercise]
-    );
+    [exerciseId, userId]
+  );
 
-    const [favsAvg] = await pool.query(
+  const [favsAvg] = await pool.query(
+    `
+            SELECT AVG(value) AS avg FROM like_exercise WHERE exerciseId = ${exerciseId}
         `
-            SELECT AVG(value) AS avg FROM like_exercise WHERE id_like = ${id_exercise}
-        `
-    );
+  );
 
-    return Number(favsAvg[0].avg);
-}
+  return Number(favsAvg[0].avg);
+};
 
 export default insertFavoriteModel;

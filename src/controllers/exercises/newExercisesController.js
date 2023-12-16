@@ -1,51 +1,52 @@
 import insertExerciseModel from "../../models/exercises/insertExerciseModel.js";
 import insertPhotoModel from "../../models/exercises/insertPhotoModel.js";
-import { savePhotoService } from '../../services/photoService.js';
+import { savePhotoService } from "../../services/photoService.js";
 
-const newExercisesController = async (req,res,next) => {
-    try {
+const newExercisesController = async (req, res, next) => {
+  try {
+    const { name, description, typology, muscle_group, equipment } = req.body;
 
-        const {name, description, id_photo, typology, muscle_group, equipment} = req.body;
+    const exerciseId = await insertExerciseModel(
+      name,
+      description,
+      typology,
+      muscle_group,
+      equipment
+    );
 
-        const exerciseId = await insertExerciseModel(name,description,id_photo,typology,muscle_group,equipment,req.user.id);
+    let photos = [];
 
-        let photos=[];
+    if (req.files) {
+      for (let photo of Object.values(req.files).slice(0, 3)) {
+        let photoName = await savePhotoService(photo, 500);
 
-        if(req.files){
-            for(let photo of Object.values(req.files).slice(0,3)){
-                
-                let photoName = await savePhotoService(photo, 500);
+        const photoId = await insertPhotoModel(photoName, exerciseId);
 
-                const photoId = await insertPhotoModel(photoName, entryId);
-
-                photos.push({
-                    id: photoId,
-                    name: photoName
-                })
-            }
-        }
-
-        res.send({
-            status: 'ok',
-            data:{
-                entry:{
-                    id: exerciseId,
-                    name,
-                    description,
-                    id_photo,
-                    typology,
-                    muscle_group,
-                    equipment,
-                    userId: req.user.id,
-                    photos,
-                    createdAt: new Date()
-                }
-            }
+        photos.push({
+          id: photoId,
+          name: photoName,
         });
-
-    } catch (error) {
-        next(error);
+      }
     }
-}
+
+    res.send({
+      status: "ok",
+      data: {
+        entry: {
+          id: exerciseId,
+          name,
+          description,
+          typology,
+          muscle_group,
+          equipment,
+          photos,
+          createdAt: new Date(),
+        },
+      },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
 
 export default newExercisesController;

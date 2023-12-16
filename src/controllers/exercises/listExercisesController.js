@@ -1,16 +1,15 @@
-import selectAllExercisesModel from "../../models/exercises/selectAllExercisesByIdModel.js";
+import selectAllExercisesModel from "../../models/exercises/selectAllExercisesModel.js";
 
-const listExercisesController = async (req,res,next) => {
-    try {
-        
-        const entries = await selectAllExercisesModel();
+const listExercisesController = async (req, res, next) => {
+  try {
+    const exercises = await selectAllExercisesModel();
 
-        res.send({
-            data: entries
-        })
-    } catch (error) {
-        next(error);
-    }
-}
+    res.send({
+      data: exercises,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
 
 export default listExercisesController;

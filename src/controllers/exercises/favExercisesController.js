@@ -2,27 +2,26 @@ import selectExerciseByIdModel from "../../models/exercises/selectExerciseByIdMo
 import { cannotVoteOwnEntryError } from "../../services/errorService.js";
 import insertFavoriteModel from "../../models/exercises/insertFavoriteModel.js";
 
-const favExercisesController = async (req,res,next) => {
-    try {
-        const { exerciseId } = req.params;
-        const { value } = req.body;
+const favExercisesController = async (req, res, next) => {
+  try {
+    const { exerciseId } = req.params;
+    const { value } = req.body;
 
-        const exercise = await selectExerciseByIdModel(exerciseId);
+    const exercise = await selectExerciseByIdModel(exerciseId);
 
-        ////////////// QUIEN CREA EL EJERCICIO NO PUEDE DARLE FAVORITOS ////////////////
+    ////////////// QUIEN CREA EL EJERCICIO NO PUEDE DARLE FAVORITOS ////////////////
 
-        if(exercise.userId === req.user.id) cannotVoteOwnEntryError();
+    // if (exercise.userId === req.user.id_user) cannotVoteOwnEntryError();
 
-        const favAvg = await insertFavoriteModel(value, exerciseId, req.user.id);
+    const favAvg = await insertFavoriteModel(exerciseId, req.user.id_user);
 
-        res.send({
-            status: 'ok',
-            data: favAvg
-        });
-
-    } catch (error) {
-        next(error);
-    }
-}
+    res.send({
+      status: "ok",
+      data: favAvg,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
 
 export default favExercisesController;
