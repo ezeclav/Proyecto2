@@ -1,14 +1,14 @@
-import selectExerciseByIdModel from "../models/exercises/selectExerciseByIdModel.js";
+import selectUserByIdModel from "../models/users/selectUserByIdModel.js";
 import { unauthorizedUserError } from "../services/errorService.js";
 
 const cantEditController = async (req, res, next) => {
   try {
-    const { entryId } = req.params;
+    const { userId } = req.params;
 
-    const entry = await selectExerciseByIdModel(entryId);
+    const user = await selectUserByIdModel(userId);
 
-    //si no somos propietarios no podemos editar nada
-    if (entry.userId !== req.user.id) unauthorizedUserError();
+    //si no somos ADMIN no podemos editar ningún ejercicio
+    if (user.role !== "admin") unauthorizedUserError();
 
     next();
   } catch (error) {

@@ -64,7 +64,7 @@ export const saveFileError = () => {
 
 export const deleteFileError = () => {
   throw {
-    httpStatus: 409, // conflict
+    httpStatus: 409, // conflicto
     code: "FILE_DELETED_FAILED",
     message: "Error al eliminar la imagen",
   };
@@ -107,5 +107,13 @@ export const recoveryCodeError = () => {
     httpStatus: 401, //no autorizado
     code: "INVALID_RECOVER_CODE",
     message: "Codigo de recuperación incorrecto",
+  };
+};
+
+export const emptyFieldExerciseError = () => {
+  throw {
+    httpStatus: 400,
+    code: "EMPTY_FIELD",
+    message: "Faltan agregas campos",
   };
 };

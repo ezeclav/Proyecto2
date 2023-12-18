@@ -5,37 +5,57 @@ const router = express.Router();
 import authUserController from "../middlewares/authUserController.js";
 
 import {
+  cantEditController,
   exerciseExistsController,
   userExistsController,
-  // cantEditController,
 } from "../middlewares/index.js";
 
 import {
   newExercisesController,
+  modifExercisescontroller,
+  deleteExercisescontroller,
   listExercisesController,
   getExercisesController,
   favExercisesController,
-  // addExercisesPhotoController,
 } from "../controllers/exercises/index.js";
 
 ///////////////////////////////////////////////////////////////
 //                   RUTAS DE EJERCICIOS                     //
 ///////////////////////////////////////////////////////////////
 
-// Para añadir un nuevo ejercicio
+// Para AÑADIR  un nuevo ejercicio
 router.post(
-  "/exercises",
+  "/:userId/newExercises",
   authUserController,
-  // userExistsController,
+  cantEditController,
   newExercisesController
 );
 
+// Para MODIFICAR un Ejercicio
+router.put(
+  "/:userId/modifExercise/:exerciseId",
+  authUserController,
+  cantEditController,
+  exerciseExistsController,
+  modifExercisescontroller
+);
+
+// Para ELIMINAR un Ejercicio
+router.delete(
+  "/:userId/deleteExercise/:exerciseId",
+  authUserController,
+  cantEditController,
+  exerciseExistsController,
+  deleteExercisescontroller
+);
+
 // Para visualizar todos los ejercicios
-router.get("/exercises", listExercisesController);
+router.get("/exercises", authUserController, listExercisesController);
 
 // Para visualizar un ejercicio en particular
 router.get(
   "/exercise/:exerciseId",
+  authUserController,
   exerciseExistsController,
   getExercisesController
 );
@@ -47,16 +67,6 @@ router.post(
   userExistsController,
   exerciseExistsController,
   favExercisesController
-);
-
-// Para agregar una foto al ejercicio
-router.post(
-  "/exercises/:exerciseId/photos",
-  authUserController,
-  userExistsController,
-  exerciseExistsController
-  // cantEditController,
-  // addExercisesPhotoController
 );
 
 export default router;

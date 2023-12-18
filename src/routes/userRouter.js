@@ -22,7 +22,12 @@ router.get("/users/validate/:registrationCode", validateUserController);
 router.post("/users/login", loginUserController);
 
 //obtener el perfil del usuario
-router.get("/users/:userId", userExistsController, getUserProfileController);
+router.get(
+  "/users/:userId",
+  authUserController,
+  userExistsController,
+  getUserProfileController
+);
 
 //recuperar contraseña --> blanqueo --> envío de mail
 router.post("/users/password/recover", sendRecoverPassController);

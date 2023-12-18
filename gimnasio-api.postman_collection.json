@@ -1,0 +1,417 @@
+{
+	"info": {
+		"_postman_id": "588bba59-c009-447d-82ac-311f9bb9f8ff",
+		"name": "gimnasio-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31390999"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"gbozzano\",\r\n    \"email\": \"gustavojorgebozzano@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3050/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3050",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"gustavojorgebozzano@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3050/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3050",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "userProfile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6Im5vcm1hbCIsImlhdCI6MTcwMjU3OTc5MiwiZXhwIjoxNzAyODM4OTkyfQ.QIsvoXrB5Zns8YQDJtLzNt0zUZRw-EPDipOFUJ4Xj7A",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3050/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3050",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recoverPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"gustavojorgebozzano@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3050/users/password/recover",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3050",
+							"path": [
+								"users",
+								"password",
+								"recover"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateRecoverPassword",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"gustavojorgebozzano@gmail.com\",\r\n    \"recoverPassCode\": \"cyE9BakjXf\",\r\n    \"newPassword\": \"87654321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3050/users/password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3050",
+							"path": [
+								"users",
+								"password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "exercises",
+			"item": [
+				{
+					"name": "newExercise",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzAyODQxMDY2LCJleHAiOjE3MDMxMDAyNjZ9.LoBusGUYoHutZQLeBS53x9BRW3V4XHx07EcDy493dKg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Curl en Banco Inclinado con Estiramiento",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Este ejercicio se realiza en un banco inclinado. Al estirar completamente los brazos al inicio del movimiento, se coloca un énfasis en el estiramiento del bíceps antes de realizar el curl. Este estiramiento previo puede potenciar la contracción muscular durante la fase ascendente del curl.",
+									"type": "text"
+								},
+								{
+									"key": "typology",
+									"value": "Fuerza",
+									"type": "text"
+								},
+								{
+									"key": "muscle_group",
+									"value": "Bíceps",
+									"type": "text"
+								},
+								{
+									"key": "equipment",
+									"value": "Banco inclinado y mancuernas",
+									"type": "text"
+								},
+								{
+									"key": "img1",
+									"type": "file",
+									"src": "/C:/Users/Gustavo/Documents/Certificados/Hack_a_Boss/PROYECTO 2 - APP para el entrenamiento/GYM-API/3 - BICEPS5/3.jpeg"
+								},
+								{
+									"key": "img4",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3050/1/NewExercises",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3050",
+							"path": [
+								"1",
+								"NewExercises"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modifExercise",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzAyODQxMDY2LCJleHAiOjE3MDMxMDAyNjZ9.LoBusGUYoHutZQLeBS53x9BRW3V4XHx07EcDy493dKg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Curl en Banco Inclinado con Estiramiento",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Este ejercicio se realiza en un banco inclinado. Al estirar completamente los brazos al inicio del movimiento, se coloca un énfasis en el estiramiento del bíceps antes de realizar el curl. Este estiramiento previo puede potenciar la contracción muscular durante la fase ascendente del curl.",
+									"type": "text"
+								},
+								{
+									"key": "typology",
+									"value": "Potencia",
+									"type": "text"
+								},
+								{
+									"key": "muscle_group",
+									"value": "Bíceps",
+									"type": "text"
+								},
+								{
+									"key": "equipment",
+									"value": "Banco inclinado y mancuernas",
+									"type": "text"
+								},
+								{
+									"key": "img1",
+									"type": "file",
+									"src": "/C:/Users/Gustavo/Documents/Certificados/Hack_a_Boss/PROYECTO 2 - APP para el entrenamiento/GYM-API/3 - BICEPS5/3.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3050/1/modifExercise/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3050",
+							"path": [
+								"1",
+								"modifExercise",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "allExercises",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzAyODQxMDY2LCJleHAiOjE3MDMxMDAyNjZ9.LoBusGUYoHutZQLeBS53x9BRW3V4XHx07EcDy493dKg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3050/exercises",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3050",
+							"path": [
+								"exercises"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "exerciseById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzAyODQxMDY2LCJleHAiOjE3MDMxMDAyNjZ9.LoBusGUYoHutZQLeBS53x9BRW3V4XHx07EcDy493dKg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3050/exercise/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3050",
+							"path": [
+								"exercise",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteExerciseById",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzAyODQxMDY2LCJleHAiOjE3MDMxMDAyNjZ9.LoBusGUYoHutZQLeBS53x9BRW3V4XHx07EcDy493dKg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3050/1/deleteExercise/6",
+							"host": [
+								"localhost"
+							],
+							"port": "3050",
+							"path": [
+								"1",
+								"deleteExercise",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "voteExercise",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3050/exercises/1/like",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3050",
+							"path": [
+								"exercises",
+								"1",
+								"like"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
