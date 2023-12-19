@@ -7,7 +7,8 @@ const cantEditController = async (req, res, next) => {
 
     const user = await selectUserByIdModel(userId);
 
-    //si no somos ADMIN no podemos editar ningún ejercicio
+    ////////////////// SI NO SOMOS ADMIN NO PODEMOS EDITAR NINGÚN EJERCICIO ///////////////////
+    
     if (user.role !== "admin") unauthorizedUserError();
 
     next();

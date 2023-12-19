@@ -25,13 +25,27 @@ const insertFavoriteModel = async (exerciseId, userId) => {
     [exerciseId, userId]
   );
 
-  const [favsAvg] = await pool.query(
-    `
-            SELECT AVG(value) AS avg FROM like_exercise WHERE exerciseId = ${exerciseId}
-        `
-  );
-
   return Number(favsAvg[0].avg);
 };
 
-export default insertFavoriteModel;
+
+////////////////////////// SE VEN LA CANTIDAD DE LIKES /////////////////////
+
+const getLikesCount = async (exerciseId) => {
+  const pool = await getPool();
+
+const [likesCount] = await pool.query(
+  `
+    SELECT COUNT(*) AS count FROM like_exercise WHERE exerciseId = ?
+  `,
+  [exerciseId]
+);
+
+if (likesCount.length === 0) {
+  favNotFoundError(); 
+}
+
+return Number(likesCount[0].count);
+};
+
+export default { insertFavoriteModel, getLikesCount };

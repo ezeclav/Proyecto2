@@ -28,7 +28,7 @@ const loginUserController = async (req, res, next) => {
       pendignActivationError();
     }
 
-    /**generación de token */
+    ////////////////////// GENERACIÓN DE TOKEN ////////////////////////
 
     const tokenInfo = {
       id: user.id_user,

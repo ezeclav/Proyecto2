@@ -7,9 +7,6 @@ const initDB = async () => {
   try {
     let pool = await getPool();
 
-    // console.log("Elimando base de datos...");
-    // await pool.query("DROP DATABASE IF EXISTS gimnasio");
-
     console.log("Creando base de datos...");
     await pool.query(`CREATE DATABASE IF NOT EXISTS ${MYSQL_DATABASE}`);
 

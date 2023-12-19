@@ -33,7 +33,8 @@ const insertUserModel = async (username, email, password, registrationCode) => {
     emailAlReadyRegistratedError();
   }
 
-  /**hacer logica de envio de email */
+  ///////////////////// ENVÍO DE EMAIL //////////////////////
+  
   const emailSubject = "Activa tu usuario en GIMNASIOS FUERZA LATINA 🏋️‍♂️🤸‍♂️";
 
   const emailBody = `

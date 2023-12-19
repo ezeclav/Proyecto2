@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 
 import routes from "./routes/index.js";
 
-// para el manejo de errores - hay que desarrollarlos
+// para el manejo de errores
 import { notFoundController, errorController } from "./middlewares/index.js";
 
 const server = express();
