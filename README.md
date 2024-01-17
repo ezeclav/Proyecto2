@@ -87,3 +87,7 @@ _servidor de envío de mails_
 _palabra del Token_
 
 `SECRET=`
+
+_Puerto del servidor_
+
+`PORT=`
