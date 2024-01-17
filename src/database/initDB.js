@@ -41,8 +41,11 @@ const initDB = async () => {
                 typology ENUM('fuerza', 'potencia', 'resistencia'),
                 muscle_group VARCHAR(100),
                 equipment VARCHAR(100),
+                userId INT NOT NULL,
                 createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-                modifiedAt DATETIME ON UPDATE CURRENT_TIMESTAMP
+                modifiedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
+                FOREIGN KEY (userId) REFERENCES users(id_user)
+
         )
      `);
 

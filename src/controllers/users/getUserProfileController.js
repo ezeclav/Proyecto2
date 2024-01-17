@@ -1,25 +1,23 @@
-import selectUserByIdModel from '../../models/users/selectUserByIdModel.js';
+import selectUserByIdModel from "../../models/users/selectUserByIdModel.js";
 
-const getUserProfileController = async (req,res,next) => {
-    try {
-        
-        const {userId} = req.params;
+const getUserProfileController = async (req, res, next) => {
+  try {
+    const { userId } = req.params;
 
-        const user = await selectUserByIdModel(userId);
+    const user = await selectUserByIdModel(userId);
 
-        delete user.email;
+    // Eliminamos los datos privados del usuario. (opcional)
+    // delete user.email;
 
-        res.send({
-            status: 'ok',
-            data:{
-                user
-            }
-        });
-
-    } catch (error) {
-        next(error);
-    }
-}
-
+    res.send({
+      status: "ok",
+      data: {
+        user,
+      },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
 
 export default getUserProfileController;

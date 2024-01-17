@@ -4,14 +4,16 @@ import { savePhotoService } from "../../services/photoService.js";
 
 const newExercisesController = async (req, res, next) => {
   try {
-    const { name, description, typology, muscle_group, equipment } = req.body;
+    const { name, description, typology, muscle_group, equipment, userId } =
+      req.body;
 
     const exerciseId = await insertExerciseModel(
       name,
       description,
       typology,
       muscle_group,
-      equipment
+      equipment,
+      userId
     );
 
     let photos = [];
@@ -39,6 +41,7 @@ const newExercisesController = async (req, res, next) => {
           typology,
           muscle_group,
           equipment,
+          userId,
           photos,
           createdAt: new Date(),
         },
