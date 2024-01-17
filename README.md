@@ -40,6 +40,8 @@ Pueden ver la landing de la plataforma donde podrán registrarse o hacer login.
 - `POST: /users/password/recover` (recuperación de contraseña de usuario)
 - `PUT: /users/password` (actualización de contraseña de usuario)
 
+- Una vez creado los usuarios, el responsable de la BBDD asignará el rol `ADMINISTRADOR` manualmente dentro del Workbench.
+
 ## ENDPOINTS de EJERCICIOS
 
 - `POST: /:userId/newExercises` (añadir un nuevo ejercicio, validando si el User es Admin)

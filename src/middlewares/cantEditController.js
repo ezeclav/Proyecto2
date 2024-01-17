@@ -1,15 +1,24 @@
-import selectUserByIdModel from "../models/users/selectUserByIdModel.js";
-import { unauthorizedUserError } from "../services/errorService.js";
+import jwt from "jsonwebtoken";
+
+import {
+  unauthorizedUserError,
+  notAuthenticatedError,
+} from "../services/errorService.js";
 
 const cantEditController = async (req, res, next) => {
+  const { authorization } = req.headers;
+
+  if (!authorization) {
+    notAuthenticatedError();
+  }
+
+  ////////////////// SI NO SOMOS ADMIN NO PODEMOS EDITAR NINGÚN EJERCICIO ///////////////////
   try {
-    const { userId } = req.params;
+    const tokenInfo = jwt.verify(authorization, process.env.SECRET);
 
-    const user = await selectUserByIdModel(userId);
+    if (tokenInfo.role !== "admin") unauthorizedUserError();
 
-    ////////////////// SI NO SOMOS ADMIN NO PODEMOS EDITAR NINGÚN EJERCICIO ///////////////////
-    
-    if (user.role !== "admin") unauthorizedUserError();
+    req.user = tokenInfo;
 
     next();
   } catch (error) {

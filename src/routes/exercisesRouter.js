@@ -25,7 +25,8 @@ import {
 
 // Para AÑADIR  un nuevo ejercicio
 router.post(
-  "/:userId/newExercises",
+  // "/:userId/newExercises",
+  "/newExercises",
   authUserController,
   cantEditController,
   newExercisesController
