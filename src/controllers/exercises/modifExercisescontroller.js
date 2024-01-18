@@ -1,3 +1,5 @@
+import jwt from "jsonwebtoken";
+
 import modifExerciseModel from "../../models/exercises/modifExerciseModel.js";
 import { emptyFieldExerciseError } from "../../services/errorService.js";
 import insertPhotoModel from "../../models/exercises/insertPhotoModel.js";

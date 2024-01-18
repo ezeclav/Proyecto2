@@ -1,11 +1,16 @@
+import jwt from "jsonwebtoken";
+
 import insertExerciseModel from "../../models/exercises/insertExerciseModel.js";
 import insertPhotoModel from "../../models/exercises/insertPhotoModel.js";
 import { savePhotoService } from "../../services/photoService.js";
 
 const newExercisesController = async (req, res, next) => {
   try {
-    const { name, description, typology, muscle_group, equipment, userId } =
-      req.body;
+    const { name, description, typology, muscle_group, equipment } = req.body;
+
+    const { authorization } = req.headers;
+    const tokenInfo = jwt.verify(authorization, process.env.SECRET);
+    const userId = tokenInfo.id;
 
     const exerciseId = await insertExerciseModel(
       name,
@@ -41,7 +46,6 @@ const newExercisesController = async (req, res, next) => {
           typology,
           muscle_group,
           equipment,
-          userId,
           photos,
           createdAt: new Date(),
         },

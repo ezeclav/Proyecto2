@@ -25,7 +25,6 @@ import {
 
 // Para AÑADIR  un nuevo ejercicio
 router.post(
-  // "/:userId/newExercises",
   "/newExercises",
   authUserController,
   cantEditController,
@@ -34,7 +33,7 @@ router.post(
 
 // Para MODIFICAR un Ejercicio
 router.put(
-  "/:userId/modifExercise/:exerciseId",
+  "/modifExercise/:exerciseId",
   authUserController,
   cantEditController,
   exerciseExistsController,
@@ -43,7 +42,7 @@ router.put(
 
 // Para ELIMINAR un Ejercicio
 router.delete(
-  "/:userId/deleteExercise/:exerciseId",
+  "/deleteExercise/:exerciseId",
   authUserController,
   cantEditController,
   exerciseExistsController,
