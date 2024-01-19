@@ -21,7 +21,7 @@ server.use(express.static(UPLOADS_DIR));
 server.use(fileUpload());
 
 //middleware de rutas
-server.use(routes);
+server.use("/api", routes);
 
 //middleware de ruta no encontrada
 server.use(notFoundController);

@@ -39,7 +39,7 @@ const newExercisesController = async (req, res, next) => {
     res.send({
       status: "ok",
       data: {
-        entry: {
+        exercise: {
           id: exerciseId,
           name,
           description,

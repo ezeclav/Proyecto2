@@ -9,6 +9,7 @@ import {
   getUserProfileController,
   sendRecoverPassController,
   editUserPasswordController,
+  getOwnUserController,
 } from "../controllers/users/index.js";
 
 import authUserController from "../middlewares/authUserController.js";
@@ -21,12 +22,20 @@ router.get("/users/validate/:registrationCode", validateUserController);
 //proceso de logueo
 router.post("/users/login", loginUserController);
 
-//obtener el perfil del usuario
+//obtener el perfil público de un usuario
 router.get(
   "/users/:userId",
   authUserController,
   userExistsController,
   getUserProfileController
+);
+
+//obtener el perfil privado del usuario logueado
+router.get(
+  "/users",
+  authUserController,
+  userExistsController,
+  getOwnUserController
 );
 
 //recuperar contraseña --> blanqueo --> envío de mail

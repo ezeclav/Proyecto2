@@ -5,7 +5,7 @@ const selectAllExercisesModel = async () => {
 
   const [exercises] = await pool.query(
     `
-            SELECT e.name, e.description, e.typology, e.muscle_group, e.equipment, COALESCE(COUNT(l.id_like_exercise), 0) AS likes
+            SELECT id_exercise, e.name, e.typology, e.muscle_group, e.equipment, COALESCE(COUNT(l.id_like_exercise), 0) AS likes
             FROM exercises e
             LEFT JOIN like_exercises l ON l.id_like_exercise = e.id_exercise
             GROUP BY e.id_exercise
@@ -20,7 +20,7 @@ const selectAllExercisesModel = async () => {
       `,
       [exercise.id_exercise]
     );
-    console.log(photos);
+    // console.log(photos);
 
     exercise.photos = photos;
   }
