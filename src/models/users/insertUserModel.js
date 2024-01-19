@@ -34,7 +34,7 @@ const insertUserModel = async (username, email, password, registrationCode) => {
   }
 
   ///////////////////// ENVÍO DE EMAIL //////////////////////
-  
+
   const emailSubject = "Activa tu usuario en GIMNASIOS FUERZA LATINA 🏋️‍♂️🤸‍♂️";
 
   const emailBody = `
@@ -42,7 +42,7 @@ const insertUserModel = async (username, email, password, registrationCode) => {
 
             Gracias por registrarte en GIMNASIOS FUERZA LATINA 🏋️‍♂️🤸‍♂️. Para activar la cuenta, haga click en el siguiente enlace:
 
-            <a href="http://localhost:3050/users/validate/${registrationCode}">Activar mi cuenta</a>
+            <a href="http://localhost:3050/api/users/validate/${registrationCode}">Activar mi cuenta</a>
     `;
 
   await sendMailUtil(email, emailSubject, emailBody);

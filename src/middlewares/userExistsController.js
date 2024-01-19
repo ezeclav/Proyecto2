@@ -5,7 +5,7 @@ const userExistsController = async (req, res, next) => {
   try {
     const pool = await getPool();
 
-    const userId = req.params.userId || req.user?.id_user;
+    const userId = req.params.userId || req.user?.id;
     console.log(userId);
     const [user] = await pool.query(
       `

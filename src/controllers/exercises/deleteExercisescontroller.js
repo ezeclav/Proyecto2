@@ -10,7 +10,7 @@ const deleteExercisescontroller = async (req, res, next) => {
 
     const exercise = await deleteExerciseModel(exerciseId);
 
-    let photoName = await deletePhotoService(photoName);
+    await deletePhotoService(photoName);
 
     res.send({
       status: "ok",

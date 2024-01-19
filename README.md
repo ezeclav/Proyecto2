@@ -44,9 +44,9 @@ Pueden ver la landing de la plataforma donde podrán registrarse o hacer login.
 
 ## ENDPOINTS de EJERCICIOS
 
-- `POST: /:userId/newExercises` (añadir un nuevo ejercicio, validando si el User es Admin)
-- `PUT: /:userId/modifExercise/:exerciseId` (modificar un ejercicio, validando si el User es Admin)
-- `DELETE: /:userId/deleteExercise/:exerciseId` (eliminar un ejercicio, validando si el User es Admin)
+- `POST: /newExercises` (añadir un nuevo ejercicio, validando si el User es Admin)
+- `PUT: /modifExercise/:exerciseId` (modificar un ejercicio, validando si el User es Admin)
+- `DELETE: /deleteExercise/:exerciseId` (eliminar un ejercicio, validando si el User es Admin)
 - `GET: /exercises` (visualizar todos los ejercicios)
 - `GET: /exercise/:exerciseId` (visualizar un ejercicio según su ID)
 - `POST: /exercises/:exerciseId/like` (darle LIKE a un ejercicio)
