@@ -1,8 +1,33 @@
 import getPool from "./getPool.js";
 import "dotenv/config";
 
+import fs from "fs/promises";
+import path from "path";
+import dotenv from "dotenv";
+
+dotenv.config();
+const { UPLOADS_DIR } = process.env;
 const { MYSQL_DATABASE } = process.env;
 
+/////////////////////   VACIADO DE CARPETA UPLOAD    ////////////////////
+const folderUpload = path.join(process.cwd(), `./src/${UPLOADS_DIR}`);
+// Función asincrónica para vaciar la carpeta de las fotos
+const folderEmpty = async (folder) => {
+  try {
+    // Elimina la carpeta y su contenido
+    await fs.rm(folder, { recursive: true });
+
+    // Crea la carpeta vacía nuevamente
+    await fs.mkdir(folder);
+
+    console.log(`La carpeta ${UPLOADS_DIR} ha sido vaciada correctamente.`);
+  } catch (error) {
+    console.error(`Error al vaciar la carpeta ${UPLOADS_DIR}:`, error);
+  }
+};
+folderEmpty(folderUpload);
+
+///////////////////////////  INICIALIZADO DE BBDD  ///////////////////7
 const initDB = async () => {
   try {
     let pool = await getPool();
