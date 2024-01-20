@@ -56,10 +56,10 @@ Pueden ver la landing de la plataforma donde podrán registrarse o hacer login.
 - ## Pasos para hacer la instalación
 
 1|clonar el repositorio de GitHub.  
-2|hacer `npm i` para que se instalen todas las dependencias.
-3|hacer una copia de .env.example y renombrarlo en .env (colocar las claves personales)
-4|ejecutar "npm run initDB" para crear la BBDD, sus tablas y eliminar cualquier foto anteriormente existente.
-5|importar la colección de Postman del repositorio para ejecutar las pruebas de los Endpoints.
+2|hacer `npm i` para que se instalen todas las dependencias.  
+3|hacer una copia de .env.example y renombrarlo en .env (colocar las claves personales)  
+4|ejecutar "npm run initDB" para crear la BBDD y sus tablas.  
+5|importar la colección de Postman del repositorio para ejecutar las pruebas de los Endpoints.  
 6|scripts para correr la aplicación: `npm run dev`.
 
 - ## Variables de entorno del backend: .env
