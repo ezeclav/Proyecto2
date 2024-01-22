@@ -18,7 +18,7 @@ const insertExcerciseModel = async (
     [name, description, typology, muscle_group, equipment, userId]
   );
 
-  console.log(result);
+  // console.log(result);
 
   const { insertId } = result;
 

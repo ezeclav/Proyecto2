@@ -24,7 +24,7 @@ const modifExerciseModel = async (exerciseId) => {
     `
   );
 
-  console.log(photoName, photo, result);
+  // console.log(`nombre de la foto en disco:`, photoName);
 
   return photoName;
 };
