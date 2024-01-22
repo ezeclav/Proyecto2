@@ -49,9 +49,6 @@ export const deletePhotoService = async (imgName) => {
     }
 
     await fs.unlink(imgPath);
-    await fs.unlink(imgPath);
-
-    await fs.unlink(imgPath);
   } catch (error) {
     deleteFileError();
   }
