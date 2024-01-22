@@ -38,8 +38,6 @@ export const savePhotoService = async (img, width) => {
   }
 };
 
-//ELIMINA una imagen DEL DISCO NO DE LA BD
-
 export const deletePhotoService = async (imgName) => {
   try {
     const imgPath = path.join(process.cwd(), `./src/${UPLOADS_DIR}`, imgName);
@@ -49,6 +47,9 @@ export const deletePhotoService = async (imgName) => {
     } catch {
       return;
     }
+
+    await fs.unlink(imgPath);
+    await fs.unlink(imgPath);
 
     await fs.unlink(imgPath);
   } catch (error) {
