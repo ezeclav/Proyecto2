@@ -22,7 +22,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"gusta\",\r\n    \"email\": \"gustavojorgebozzano@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
+							"raw": "{\r\n    \"username\": \"gusty\",\r\n    \"email\": \"gustavo.tecnicoftth@gmail.com\",\r\n    \"password\": \"54321\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -208,7 +208,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzA1NjA2MzUwLCJleHAiOjE3MDU4NjU1NTB9.D1PcUOOpHpWbcf2Kqe-T29QYnrXVCICCZnVMgLjaDro",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzA1OTM0NDMwLCJleHAiOjE3MDYxOTM2MzB9.nnwYIUzRq3uJG9BH9xORtpDzY_t11LpRChlBs9m089g",
 								"type": "text"
 							}
 						],
@@ -243,18 +243,19 @@
 								{
 									"key": "img1",
 									"type": "file",
-									"src": "/C:/Users/Gustavo/Documents/Certificados/Hack_a_Boss/PROYECTO 2 - APP para el entrenamiento/GYM-API/5 - TRICEPS/1.jpg"
+									"src": "/C:/Users/Gustavo/Documents/Certificados/Hack_a_Boss/PROYECTO 2 - APP para el entrenamiento/GYM-API/5 - TRICEPS/4.jpeg"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3050/NewExercises",
+							"raw": "http://localhost:3050/api/NewExercises",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3050",
 							"path": [
+								"api",
 								"NewExercises"
 							]
 						}
@@ -268,7 +269,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzA1NjA2MzUwLCJleHAiOjE3MDU4NjU1NTB9.D1PcUOOpHpWbcf2Kqe-T29QYnrXVCICCZnVMgLjaDro",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzA1OTM0NDMwLCJleHAiOjE3MDYxOTM2MzB9.nnwYIUzRq3uJG9BH9xORtpDzY_t11LpRChlBs9m089g",
 								"type": "text"
 							}
 						],
@@ -277,12 +278,12 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Weighted Dip Tri-Set.",
+									"value": "Weighted Dip Tri-Set...",
 									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "El Fondo con Peso en Tri Set es un ejercicio compuesto para fuerza que implica realizar fondos con peso en tres posiciones diferentes. Este ejercicio trabaja intensamente los tríceps. Realiza 3 series hasta el fallo en cada posición, con una transición inmediata de fondos con peso a fondos con peso corporal y fondos asistidos.",
+									"value": "El Fondo con Peso en Tri Set es un ejercicio compuesto para fuerza que implica realizar fondos con peso en tres posiciones diferentes. Este ejercicio trabaja intensamente los tríceps. Realiza 3 series hasta el fallo en cada posición, con una transición inmediata de fondos con peso a fondos con peso corporal y fondos asistidos...",
 									"type": "text"
 								},
 								{
@@ -303,7 +304,7 @@
 								{
 									"key": "img1",
 									"type": "file",
-									"src": "/C:/Users/Gustavo/Documents/Certificados/Hack_a_Boss/PROYECTO 2 - APP para el entrenamiento/GYM-API/5 - TRICEPS/2.jpg"
+									"src": "/C:/Users/Gustavo/Documents/Certificados/Hack_a_Boss/PROYECTO 2 - APP para el entrenamiento/GYM-API/5 - TRICEPS/3.jpg"
 								}
 							]
 						},
@@ -330,7 +331,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzA1NjA2MzUwLCJleHAiOjE3MDU4NjU1NTB9.D1PcUOOpHpWbcf2Kqe-T29QYnrXVCICCZnVMgLjaDro",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzA1OTM0NDMwLCJleHAiOjE3MDYxOTM2MzB9.nnwYIUzRq3uJG9BH9xORtpDzY_t11LpRChlBs9m089g",
 								"type": "text"
 							}
 						],
@@ -356,12 +357,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6Im5vcm1hbCIsImlhdCI6MTcwNTUxODAwMCwiZXhwIjoxNzA1Nzc3MjAwfQ.AHM8Xe0BmEu4NQ76cCKVRv0VxWTD6PJGDlPHhgD5j10",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzA1OTM0NDMwLCJleHAiOjE3MDYxOTM2MzB9.nnwYIUzRq3uJG9BH9xORtpDzY_t11LpRChlBs9m089g",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "localhost:3050/api/exercise/3",
+							"raw": "localhost:3050/api/exercise/2",
 							"host": [
 								"localhost"
 							],
@@ -369,7 +370,7 @@
 							"path": [
 								"api",
 								"exercise",
-								"3"
+								"2"
 							]
 						}
 					},
@@ -382,12 +383,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzA1NjA2MzUwLCJleHAiOjE3MDU4NjU1NTB9.D1PcUOOpHpWbcf2Kqe-T29QYnrXVCICCZnVMgLjaDro",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzA1OTM0NDMwLCJleHAiOjE3MDYxOTM2MzB9.nnwYIUzRq3uJG9BH9xORtpDzY_t11LpRChlBs9m089g",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "localhost:3050/api/deleteExercise/3",
+							"raw": "localhost:3050/api/deleteExercise/13",
 							"host": [
 								"localhost"
 							],
@@ -395,7 +396,7 @@
 							"path": [
 								"api",
 								"deleteExercise",
-								"3"
+								"13"
 							]
 						}
 					},
@@ -422,15 +423,16 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3050/exercises/1/like",
+							"raw": "http://localhost:3050/api/exercises/2/like",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3050",
 							"path": [
+								"api",
 								"exercises",
-								"1",
+								"2",
 								"like"
 							]
 						}
